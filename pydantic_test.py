@@ -1,4 +1,4 @@
-from pydantic_test import BaseModel, EmailStr, AnyUrl, Field, field_validator, model_validator, computed_field
+from pydantic import BaseModel, EmailStr, AnyUrl, Field, field_validator, model_validator, computed_field
 from typing import List, Dict, Optional, Annotated
 
 class Address(BaseModel):
@@ -93,6 +93,6 @@ insert_patient_data(patient1)
 
 print(patient1.model_dump_json())
 print('\n')
-print(patient1.model_dump_json(include=['name']))
-print(patient1.model_dump_json(exclude=['name']))
-print(patient1.model_dump_json(exclude={'address':['state']}))
+print(patient1.model_dump_json(include={'name'}))
+print(patient1.model_dump_json(exclude={'name'}))
+print(patient1.model_dump_json(exclude={'address': {'state'}}))
