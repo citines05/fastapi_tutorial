@@ -31,9 +31,7 @@ class Patient(BaseModel):
         # Nota: os limites seguem uma convenção comum.
         if self.bmi < 18.5:
             return 'underweight'
-        elif self.bmi < 25:
-            return 'normal'
-        elif self.bmi < 30:
+        elif self.bmi < 30 and self.bmi >= 18.5:
             return 'normal'
         else:
             return 'obese'
